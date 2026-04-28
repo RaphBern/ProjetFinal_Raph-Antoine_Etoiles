@@ -1,24 +1,28 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Etoile {
     int tempCouleur;
-    ArrayList<String> compoSurface;
-    Type classification;
+  Composition compoSurface;
 
 
-    public Etoile(int tempCouleur, ArrayList<String> compoSurface, Type classification) {
+
+    public Etoile(int tempCouleur, Composition compoSurface) {
         tempCouleur = this.tempCouleur;
         compoSurface = this.compoSurface;
-        classification = this.classification;
+
     }
 
     public int getTempCouleur() {
         return tempCouleur;
     }
 
-    public Type getClassification() {
-        return classification;
+
+    public int compareTo(Etoile autreEtoile){
+        return autreEtoile.getTempCouleur() - this.tempCouleur;
     }
+
+
 
 }
 
