@@ -1,6 +1,6 @@
 package Étoile;
 
-public class Etoile {
+public class Etoile implements ClassificationEtoile {
     int tempCouleur;
   Composition compoSurface;
 
@@ -22,7 +22,15 @@ public class Etoile {
     }
 
 
+    @Override
+    public boolean associerEtoiles(Etoile etoile) {
+        return false;
+    }
 
+    @Override
+    public Type getType() {
+        return null;
+    }
 }
 
 
