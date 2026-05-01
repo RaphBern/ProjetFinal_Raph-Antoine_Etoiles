@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
+package Étoile;
 
 public class Etoile {
     int tempCouleur;

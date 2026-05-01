@@ -1,3 +1,5 @@
+package Étoile;
+
 public class RegleTemp implements ClassificationEtoile {
 int tempCouleurMin;
 int tempCouleurMax;
