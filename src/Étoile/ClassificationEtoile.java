@@ -1,4 +1,4 @@
-import Étoile.Etoile;
+package Étoile;
 
 public interface ClassificationEtoile {
 
