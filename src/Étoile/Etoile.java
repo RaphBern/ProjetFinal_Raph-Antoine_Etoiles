@@ -1,5 +1,7 @@
 package Étoile;
 
+import java.io.IOException;
+
 public class Etoile implements ClassificationEtoile {
     int tempCouleur;
   Composition compoSurface;
@@ -28,7 +30,7 @@ public class Etoile implements ClassificationEtoile {
     }
 
     @Override
-    public Type getType() {
+    public Type getType() throws IOException {
         return null;
     }
 }
