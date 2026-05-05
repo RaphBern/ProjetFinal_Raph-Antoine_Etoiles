@@ -11,8 +11,8 @@ public class Etoile implements ClassificationEtoile {
 
 
     public Etoile(int tempCouleur, Composition compoSurface) {
-        tempCouleur = this.tempCouleur;
-        compoSurface = this.compoSurface;
+        this.tempCouleur = tempCouleur;
+        this.compoSurface = compoSurface;
 
     }
 
@@ -31,7 +31,7 @@ public class Etoile implements ClassificationEtoile {
         return false;
     }
 
-    public Type getType(Etoile etoile) throws IOException {
+    public Type getType() throws IOException {
         int tempMin;
         int tempMax;
         Type type = null;
@@ -43,7 +43,7 @@ public class Etoile implements ClassificationEtoile {
             String[] etoilez = line.split(",");
             tempMin = Integer.parseInt(etoilez[0]);
             tempMax = Integer.parseInt(etoilez[1]);
-            if (etoile.getTempCouleur() > tempMin && etoile.getTempCouleur() < tempMax){
+            if (getTempCouleur() > tempMin && getTempCouleur() < tempMax){
                 type = Type.valueOf(etoilez[2]);
             }
             line = fichier.readLine();

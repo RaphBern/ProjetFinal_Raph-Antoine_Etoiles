@@ -9,8 +9,8 @@ import java.io.IOException;
 public class EtoileApp {
     public static void main(String[] args) throws IOException {
         Etoile etoile = new Etoile(30000,new Composition());
-        Etoile etoile1 = new Etoile(1000,new Composition());
+        Etoile etoile1 = new Etoile(10001,new Composition());
         RegleTemp regleTemp = new RegleTemp();
-        System.out.println(regleTemp.getType(etoile));
+        System.out.println(etoile1.getType());
     }
 }

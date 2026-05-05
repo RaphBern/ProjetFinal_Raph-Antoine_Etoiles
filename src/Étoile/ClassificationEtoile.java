@@ -5,5 +5,5 @@ import java.io.IOException;
 public interface ClassificationEtoile {
 
    boolean associerEtoiles(Etoile etoile);
-   Type getType(Etoile etoile) throws IOException;
+   Type getType() throws IOException;
 }
