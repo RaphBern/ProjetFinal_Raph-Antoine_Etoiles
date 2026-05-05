@@ -30,6 +30,17 @@ public class Etoile implements ClassificationEtoile {
         return autreEtoile.getTempCouleur() - this.tempCouleur;
     }
 
+    public void setTempCouleur(int tempCouleur) {
+        this.tempCouleur = tempCouleur;
+    }
+
+    public void setCompoSurface(Composition compoSurface) {
+        this.compoSurface = compoSurface;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
 
     @Override
     public boolean associerEtoiles(Etoile etoile) {
