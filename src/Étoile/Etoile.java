@@ -41,7 +41,7 @@ public class Etoile implements ClassificationEtoile {
         int tempMax;
         Type type = null;
         String line;
-        BufferedReader fichier = new BufferedReader(new FileReader("src/ClassificationsTemperature.csv"));
+        BufferedReader fichier = new BufferedReader(new FileReader("src/DonneesClassification/ClassificationsTemperature.csv"));
         fichier.readLine();
         line = fichier.readLine();
         while (line != null) {
