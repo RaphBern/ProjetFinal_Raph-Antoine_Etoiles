@@ -1,5 +1,7 @@
 package Étoile;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Etoile implements ClassificationEtoile {
@@ -29,9 +31,25 @@ public class Etoile implements ClassificationEtoile {
         return false;
     }
 
-    @Override
-    public Type getType() throws IOException {
-        return null;
+    public Type getType(Etoile etoile) throws IOException {
+        int tempMin;
+        int tempMax;
+        Type type = null;
+        String line;
+        BufferedReader fichier = new BufferedReader(new FileReader("src/Classifications.csv"));
+        fichier.readLine();
+        line = fichier.readLine();
+        while (line != null) {
+            String[] etoilez = line.split(",");
+            tempMin = Integer.parseInt(etoilez[0]);
+            tempMax = Integer.parseInt(etoilez[1]);
+            if (etoile.getTempCouleur() > tempMin && etoile.getTempCouleur() < tempMax){
+                type = Type.valueOf(etoilez[2]);
+            }
+            line = fichier.readLine();
+        }
+        fichier.close();
+        return type;
     }
 }
 
