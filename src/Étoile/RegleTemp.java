@@ -15,7 +15,7 @@ public class RegleTemp implements ClassificationEtoile {
 //        int tempMax;
 //        Type type = null;
 //        String line;
-//        BufferedReader fichier = new BufferedReader(new FileReader("src/Classifications.csv"));
+//        BufferedReader fichier = new BufferedReader(new FileReader("src/ClassificationsTemperature.csv"));
 //        fichier.readLine();
 //        line = fichier.readLine();
 //        while (line != null) {

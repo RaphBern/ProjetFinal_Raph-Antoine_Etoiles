@@ -6,13 +6,15 @@ import java.io.IOException;
 
 public class Etoile implements ClassificationEtoile {
     int tempCouleur;
+    String couleur;
   Composition compoSurface;
 
 
 
-    public Etoile(int tempCouleur, Composition compoSurface) {
+    public Etoile(int tempCouleur, Composition compoSurface, String couleur) {
         this.tempCouleur = tempCouleur;
         this.compoSurface = compoSurface;
+        this.couleur = couleur;
 
     }
 
@@ -20,6 +22,9 @@ public class Etoile implements ClassificationEtoile {
         return tempCouleur;
     }
 
+    public String getCouleur() {
+        return couleur;
+    }
 
     public int compareTo(Etoile autreEtoile){
         return autreEtoile.getTempCouleur() - this.tempCouleur;
@@ -36,7 +41,7 @@ public class Etoile implements ClassificationEtoile {
         int tempMax;
         Type type = null;
         String line;
-        BufferedReader fichier = new BufferedReader(new FileReader("src/Classifications.csv"));
+        BufferedReader fichier = new BufferedReader(new FileReader("src/ClassificationsTemperature.csv"));
         fichier.readLine();
         line = fichier.readLine();
         while (line != null) {
