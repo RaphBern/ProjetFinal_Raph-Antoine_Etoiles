@@ -19,11 +19,10 @@ public RegleTemp(int tempCouleurMin, int tempCouleurMax, Type typeEtoile){
         return false;
     }
 
-    @Override
     public Type getType(Etoile etoile) throws IOException {
         int tempMin;
         int tempMax;
-        Type type;
+        Type type = null;
         String line;
         BufferedReader fichier = new BufferedReader(new FileReader("src/Classifications.csv"));
         line = fichier.readLine();
@@ -31,8 +30,12 @@ public RegleTemp(int tempCouleurMin, int tempCouleurMax, Type typeEtoile){
             String[] etoilez = line.split(",");
             tempMin = Integer.parseInt(etoilez[0]);
             tempMax = Integer.parseInt(etoilez[1]);
-            if (etoile.getTempCouleur() > tempMin || )
+            if (etoile.getTempCouleur() > tempMin || etoile.getTempCouleur() < tempMax){
+                type = Type.valueOf(etoilez[2]);
+            }
+            line = fichier.readLine();
         }
-
+ fichier.close();
+        return type;
     }
 }
