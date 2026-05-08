@@ -14,13 +14,6 @@ public class EtoileApp {
 
         Scanner lecteur = new Scanner(System.in);
         Etoile etoile = new Etoile(0,null,null);
-        System.out.println("Si vous voulez connaitre le type d'une Étoile appuiée sur R:\nS vous voulez connaitre les caracteristiques d'un type appuiée sur F:");
-        String entree = lecteur.nextLine();
-        if (entree.equals("F")) {
-            System.out.println("Entrer le type d'étoile que vous souhaiter connaitre:");
-            String entreeType = lecteur.nextLine();
-        }
-        if (entree.equals("R")){
         System.out.println("Entrer la température de l'étoile (si la donnée est inconnu écrire R):");
         String entreeTemp = lecteur.nextLine();
          while (!entreeTemp.equals("R")){
@@ -64,6 +57,6 @@ public class EtoileApp {
               }
              entreeElements = lecteur.nextLine();
          }
-        System.out.println(compo);}
+        System.out.println(compo);
     }
 }

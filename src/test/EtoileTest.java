@@ -1,10 +1,5 @@
 package test;
 
-import Étoile.Composition;
-import Étoile.Etoile;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class EtoileTest {
 
 //    @org.junit.jupiter.api.Test
