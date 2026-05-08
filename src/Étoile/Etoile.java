@@ -3,18 +3,19 @@ package Étoile;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Etoile implements ClassificationEtoile {
     int tempCouleur;
-    String couleur;
-  Composition compoSurface;
+    Couleurs couleur;
+  ArrayList<CompoRaies> compoSurface;
 
 
 
-    public Etoile(int tempCouleur, Composition compoSurface, String couleur) {
+    public Etoile(int tempCouleur, ArrayList<CompoRaies> compoSurface, Couleurs couleurs) {
         this.tempCouleur = tempCouleur;
         this.compoSurface = compoSurface;
-        this.couleur = couleur;
+        this.couleur = couleurs;
 
     }
 
@@ -22,7 +23,7 @@ public class Etoile implements ClassificationEtoile {
         return tempCouleur;
     }
 
-    public String getCouleur() {
+    public Couleurs getCouleur() {
         return couleur;
     }
 
@@ -36,12 +37,22 @@ public class Etoile implements ClassificationEtoile {
       } else throw new IllegalArgumentException();
     }
 
-    public void setCompoSurface(Composition compoSurface) {
+    public void setCompoSurface(ArrayList<CompoRaies> compoSurface) {
         this.compoSurface = compoSurface;
     }
 
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
+    public void setCouleur(Couleurs couleur) {
+    boolean vrai = false;
+      for (Couleurs couleurs : Couleurs.values()){
+          if (couleurs.equals(couleur)) {
+              this.couleur = couleur;
+              vrai = true;
+              break;
+          }
+      }
+       if (!vrai) {
+           throw new IllegalArgumentException();
+       }
     }
 
     @Override

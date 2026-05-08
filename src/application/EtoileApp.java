@@ -1,9 +1,8 @@
 package application;
 
 import Étoile.CompoRaies;
-import Étoile.Composition;
+import Étoile.Couleurs;
 import Étoile.Etoile;
-import Étoile.RegleTemp;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,14 +32,14 @@ public class EtoileApp {
         entreeColor = entreeColor.toUpperCase();
       while (!entreeColor.equals("R")) {
           try {
-              etoile.setCouleur(entreeColor);
+              etoile.setCouleur(Couleurs.valueOf(entreeColor));
 
           } catch (IllegalArgumentException e) {
               System.out.println("Couleur invalide ou inutile pour la classification");
               System.out.println("Entrez à nouveau la couleur ou R si vous n'avez pas d'autre données");
-
+              entreeColor = lecteur.nextLine();
           }
-          entreeColor = lecteur.nextLine();
+
       }
 
         System.out.println("Entrer un element de la composition du raie d'absorbtion (si inconnu ecrire R)");
@@ -57,6 +56,7 @@ public class EtoileApp {
               }
              entreeElements = lecteur.nextLine();
          }
+         etoile.setCompoSurface(compo);
         System.out.println(compo);
     }
 }
