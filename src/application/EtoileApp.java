@@ -16,19 +16,32 @@ public class EtoileApp {
         Etoile etoile = new Etoile(0,null,null);
         System.out.println("Entrer la température de l'étoile (si la donnée est inconnu écrire R):");
         String entreeTemp = lecteur.nextLine();
-        if (!entreeTemp.equals("R")){
-            int temp = Integer.parseInt(entreeTemp);
-            etoile.setTempCouleur(temp);
+         while (!entreeTemp.equals("R")){
+            try {
+                int temp = Integer.parseInt(entreeTemp);
+                etoile.setTempCouleur(temp);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Température impossible ou ");
+                entreeTemp = lecteur.nextLine();
+            }
+
         }
 
         System.out.println("Entrer la couleur de l'étoile (si la couleur est inconnue écrire R):");
         String entreeColor = lecteur.nextLine();
         entreeColor = entreeColor.toUpperCase();
-        try {
-            etoile.setCouleur(entreeColor);
-        }catch (IllegalArgumentException e) {
-            System.out.println("Couleur invalide ou inutile pour la classification");
-        }
+      while (!entreeColor.equals("R")) {
+          try {
+              etoile.setCouleur(entreeColor);
+
+          } catch (IllegalArgumentException e) {
+              System.out.println("Couleur invalide ou inutile pour la classification");
+              System.out.println("Entrez à nouveau la couleur ou R si vous n'avez pas d'autre données");
+
+          }
+          entreeColor = lecteur.nextLine();
+      }
 
         System.out.println("Entrer un element de la composition du raie d'absorbtion (si inconnu ecrire R)");
         String entreeElements = lecteur.nextLine();
@@ -42,8 +55,6 @@ public class EtoileApp {
                   System.out.println("Élément inconnu ou inutile pour la classification");
                   System.out.println("Entrez à nouveau l'élément ou R si le reste de la composition des raies est inconnue ");
               }
-
-
              entreeElements = lecteur.nextLine();
          }
         System.out.println(compo);

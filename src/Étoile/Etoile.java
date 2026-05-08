@@ -31,7 +31,9 @@ public class Etoile implements ClassificationEtoile {
     }
 
     public void setTempCouleur(int tempCouleur) {
-        this.tempCouleur = tempCouleur;
+      if (tempCouleur >= 2000 && tempCouleur <= 200000) {
+          this.tempCouleur = tempCouleur;
+      } else throw new IllegalArgumentException();
     }
 
     public void setCompoSurface(Composition compoSurface) {
