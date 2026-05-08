@@ -5,6 +5,7 @@ import Étoile.Type;
 public class EtoileClassifie {
 
      public Type getTypeTemp(){
-return null;
+
+          return null;
      }
 }
