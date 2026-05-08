@@ -50,6 +50,8 @@ public class Etoile implements ClassificationEtoile {
     public Type getType() throws IOException {
         int tempMin;
         int tempMax;
+        String Couleur;
+        String Couleur2;
         Type type = null;
         String line;
         BufferedReader fichier = new BufferedReader(new FileReader("src/DonneesClassification/ClassificationsTemperature.csv"));
@@ -64,6 +66,20 @@ public class Etoile implements ClassificationEtoile {
             }
             line = fichier.readLine();
         }
+        String line1;
+        BufferedReader fichier1 = new BufferedReader(new FileReader("src/DonneesClassification/CLassificationCouleur.csv"));
+        fichier1.readLine();
+        line1 = fichier1.readLine();
+        while (line1 != null) {
+            String[] etoilex = line1.split(",");
+            Couleur = etoilex[0];
+            Couleur2 = etoilex[1];
+            if(getCouleur().equals(Couleur) || getCouleur().equals(Couleur2));{
+                type = Type.valueOf(etoilex[2]);
+            }
+            line1 = fichier1.readLine();
+        }
+        fichier1.close();
         fichier.close();
         return type;
     }
