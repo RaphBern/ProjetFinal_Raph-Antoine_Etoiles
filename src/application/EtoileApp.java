@@ -70,7 +70,7 @@ public class EtoileApp {
                 while(!entree.equalsIgnoreCase("R")) {
                 try {
                     Type type = Type.valueOf(entree);
-                    System.out.println(RegleTemp(entree));
+                    System.out.println(RegleTemp.toString(type));
                 }catch(IllegalArgumentException e) {
                     System.out.println("Type inconnu ou il n'a pas été écrit en majuscule");
                 }
