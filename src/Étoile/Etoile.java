@@ -113,12 +113,11 @@ public class Etoile implements ClassificationEtoile {
         line2 = fichier2.readLine();
         while (line != null) {
             String[] etoilez = line2.split(",");
-            tempMin = Integer.parseInt(etoilez[0]);
-            tempMax = Integer.parseInt(etoilez[1]);
-            if (getTempCouleur() > tempMin && getTempCouleur() < tempMax){
-                typeTemp = Type.valueOf(etoilez[2]);
-            }
-            line2 = fichier.readLine();
+          for (int o = 1; o < getCompoSurface().size();o++){
+              if (getCompoSurface().get(o).equals(CompoRaies.valueOf(etoilez[o]))) {
+
+              }
+          }
         }
         fichier1.close();
         fichier.close();
