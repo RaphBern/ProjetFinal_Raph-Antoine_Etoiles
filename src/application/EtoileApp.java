@@ -35,7 +35,7 @@ public class EtoileApp {
           try {
               Couleurs couleur = Couleurs.valueOf(entreeColor);
               etoile.setCouleur(couleur);
-
+             break;
           } catch (IllegalArgumentException e) {
               System.out.println("Couleur invalide ou inutile pour la classification");
               System.out.println("Entrez à nouveau la couleur ou R si vous n'avez pas d'autre données");
@@ -46,9 +46,9 @@ public class EtoileApp {
 
         System.out.println("Entrer un element de la composition du raie d'absorbtion (si inconnu ecrire R)");
         String entreeElements = lecteur.nextLine();
-        entreeElements = entreeElements.toUpperCase();
          ArrayList<CompoRaies> compo = new ArrayList<>();
-         while (!entreeElements.equals("R")) {
+         while (!entreeElements.equalsIgnoreCase("R")) {
+             entreeElements = entreeElements.toUpperCase();
               try {
                   compo.add(CompoRaies.valueOf(entreeElements));
                   System.out.println("Entrée valide, entrer le prochain élément (si le reste est inconnu, entrer R)");
@@ -58,6 +58,9 @@ public class EtoileApp {
               }
              entreeElements = lecteur.nextLine();
          }
+         etoile.setCompoSurface(compo);
         System.out.println(compo);
+        System.out.println(etoile.toString());
     }
+
 }

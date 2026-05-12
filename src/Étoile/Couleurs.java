@@ -1,5 +1,5 @@
 package Étoile;
 
 public enum Couleurs {
-    Bleue,Blanche,Jaune,Orange,Rouge
+    BLEUE,BLANCHE,JAUNE,ORANGE,ROUGE
 }
