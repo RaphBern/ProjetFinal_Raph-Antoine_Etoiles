@@ -1,7 +1,7 @@
 package application;
 
 import Étoile.CompoRaies;
-import Étoile.Composition;
+import Étoile.Couleurs;
 import Étoile.Etoile;
 import Étoile.RegleTemp;
 
@@ -16,7 +16,7 @@ public class EtoileApp {
         Etoile etoile = new Etoile(0,null,null);
         System.out.println("Entrer la température de l'étoile (si la donnée est inconnu écrire R):");
         String entreeTemp = lecteur.nextLine();
-         while (!entreeTemp.equals("R")){
+         while (!entreeTemp.equalsIgnoreCase("R")){
             try {
                 int temp = Integer.parseInt(entreeTemp);
                 etoile.setTempCouleur(temp);
@@ -33,7 +33,8 @@ public class EtoileApp {
         entreeColor = entreeColor.toUpperCase();
       while (!entreeColor.equals("R")) {
           try {
-              etoile.setCouleur(entreeColor);
+              Couleurs couleur = Couleurs.valueOf(entreeColor);
+              etoile.setCouleur(couleur);
 
           } catch (IllegalArgumentException e) {
               System.out.println("Couleur invalide ou inutile pour la classification");
