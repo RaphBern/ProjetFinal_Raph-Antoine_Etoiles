@@ -21,22 +21,25 @@ public class RegleTemp {
 
     public static ArrayList temp(Type type) throws IOException {
         ArrayList<Object> temp = new ArrayList<>();
-        csvReader reader = new csvReader("src/DonneesClassification/ClassificationsTemperature.csv");
-        List<String[]> classe = reader.getClasse();
-//        String line;
-//        BufferedReader fichier = new BufferedReader(new FileReader("src/DonneesClassification/ClassificationsTemperature.csv"));
-//        fichier.readLine();
-//        line = fichier.readLine();
-//        while (line != null) {
-//            String[] etoilez = line.split(",");
-        for (String[] etoilez:classe)
-            if(type.equals(Type.valueOf(etoilez[2]))) {
-                for (int i = 0; i < etoilez.length -1; i++) {
-                    if(!etoilez[i].equals("null")) {
+//        csvReader reader = new csvReader("src/DonneesClassification/ClassificationsTemperature.csv");
+//        List<String[]> classe = reader.getClasse();
+        String line;
+        BufferedReader fichier = new BufferedReader(new FileReader("src/DonneesClassification/ClassificationsTemperature.csv"));
+        fichier.readLine();
+        line = fichier.readLine();
+        while (line != null) {
+            String[] etoilez = line.split(",");
+//        for (String[] etoilez:classe)
+            if (type.equals(Type.valueOf(etoilez[2]))) {
+                for (int i = 0; i < etoilez.length - 1; i++) {
+                    if (!etoilez[i].equals("null")) {
                         temp.add(etoilez[i]);
                     }
+
                 }
             }
+            line = fichier.readLine();
+        }
         return temp;
     }
 
