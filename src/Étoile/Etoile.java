@@ -75,6 +75,9 @@ public class Etoile implements ClassificationEtoile {
             if (entry.getValue() > plusGrandQue){
                 plusGrandQue = entry.getValue();
                 total += entry.getValue();
+            } else if (entry.getValue() == plusGrandQue){
+                total += entry.getValue();
+
             }
         }
         return ((double) plusGrandQue /total) * 100;
@@ -122,8 +125,8 @@ public class Etoile implements ClassificationEtoile {
             String[] etoilez = line.split(",");
             tempMin = Integer.parseInt(etoilez[0]);
             tempMax = Integer.parseInt(etoilez[1]);
-            if (getTempCouleur() > tempMin && getTempCouleur() < tempMax){
-                probabilites.replace(Type.valueOf(etoilez[2]), +1);
+            if (getTempCouleur() >= tempMin && getTempCouleur() <= tempMax){
+                probabilites.put(Type.valueOf(etoilez[2]), +1);
             }
             line = fichier.readLine();
         }
@@ -136,14 +139,14 @@ public class Etoile implements ClassificationEtoile {
             Couleur = etoilex[0];
             Couleur2 = etoilex[1];
 
-         try {
-             if (getCouleur().toString().equals(Couleur) || getCouleur().toString().equals(Couleur2)) {
-                 probabilites.replace(Type.valueOf(etoilex[2]), +1);
+//         try {
+             if (getCouleur().toString().equalsIgnoreCase(Couleur) || getCouleur().toString().equalsIgnoreCase(Couleur2)) {
+                 probabilites.put(Type.valueOf(etoilex[2]), +1);
              }
              line1 = fichier1.readLine();
-         }catch (NullPointerException e) {
-            break;
-         }
+//         }catch (NullPointerException e) {
+//            break;
+//         }
         }
         String line2;
         BufferedReader fichier2 = new BufferedReader(new FileReader("src/DonneesClassification/ClassificationComposition.csv"));
@@ -153,7 +156,7 @@ public class Etoile implements ClassificationEtoile {
             String[] etoilez = line2.split(",");
           for (int o = 1; o < getCompoSurface().size();o++){
               if (getCompoSurface().get(o).equals(CompoRaies.valueOf(etoilez[o]))) {
-                  probabilites.replace(Type.valueOf(etoilez[o]),+1);
+                  probabilites.put(Type.valueOf(etoilez[o]),+1);
               }
           }
         }
