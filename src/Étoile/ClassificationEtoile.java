@@ -1,9 +1,10 @@
 package Étoile;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public interface ClassificationEtoile {
 
    boolean associerEtoiles(Etoile etoile);
-   Type getType() throws IOException;
+   HashMap<Type, Double> getType() throws IOException;
 }

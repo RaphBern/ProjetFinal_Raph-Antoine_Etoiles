@@ -62,9 +62,7 @@ public class EtoileApp {
                     }
                     entreeElements = lecteur.nextLine();
                 }
-                etoile.setCompoSurface(compo);
-                System.out.println(compo);
-                System.out.println(etoile.toString());
+                System.out.println(etoile.getType());
             }
             else{
                 while(!entree.equalsIgnoreCase("R")) {
